@@ -28,12 +28,28 @@ while True:
     for (x, y, w, h) in faces:
         cv2.rectangle(img, (x, y), (x+w, y+h), (255, 0, 0), 2)
         
+        print(x,y,"--")
         
-        if not (x < 260 and x > 220):        
+        
+        if not (x < 260 and x > 220):
             if (x < 480 / 2):
+                print('A',end = "")
                 ser.write(b'A')
             else:
-                ser.write(b'B')    
+                print('B',end = "")
+                ser.write(b'B') 
+                
+        
+                
+        elif not (y < 260 and y > 220):
+            if (y < 480 / 2):
+                print('C',end = "")
+                ser.write(b'C')
+            else:
+                print('D',end = "")
+                ser.write(b'D')    
+                
+                
         
     # Display
     cv2.imshow('img', img)
